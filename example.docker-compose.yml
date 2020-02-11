@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  cert:
+    container_name: cert
+    build: .
+    image: autocert:example
+    restart: always
+    env_file: ./example.argument.env
+    volumes:
+      - /path/to/cert:/etc/letsencrypt
+      - /path/to/log:/var/log/letsencrypt

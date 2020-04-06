@@ -17,9 +17,12 @@ RUN set -x \
     && apk add --no-cache yarn \
     && wget https://github.com/microsoft/vscode/archive/${VERSION}.tar.gz \
     && tar -xzf ${VERSION}.tar.gz \
-    && cd vscode-${VERSION} \
+    && mv vscode-${VERSION} vscode \
+    && cd vscode \
     && yarn \
     && yarn compile \
     && apk del .deps
+
+WORKDIR /opt/vscode
 
 ENTRYPOINT [ "yarn", "web" ]

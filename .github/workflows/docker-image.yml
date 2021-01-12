@@ -16,4 +16,4 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build ./Nextcloud/ --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build /home/runner/work/DockerIL/DockerIL/Nextcloud/ --file Dockerfile --tag my-image-name:$(date +%s)
